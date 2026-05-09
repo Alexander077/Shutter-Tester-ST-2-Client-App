@@ -1,6 +1,6 @@
 # Shutter Tester ST-2 — Desktop Client App
 
-A **Qt6 / C++ desktop application** for Windows that provides a graphical interface to the **Shutter Tester ST-2** hardware device. It communicates with the device over a USB CDC (COM port) connection using the [Serial API](../serial%20API/docs/serial%20API%20docs.md).
+A **Qt6 / C++ desktop application** for Windows that provides a graphical interface to the **Shutter Tester ST-2** hardware device. It communicates with the device over a USB CDC (COM port) connection using the [Serial API](../serial%20API/docs/serial%20API%20docs.md). The application is currently in alpha state (under development) but you can try it, installer is in [dist](./dist/) folder.
 
 ---
 
@@ -42,7 +42,7 @@ A **Qt6 / C++ desktop application** for Windows that provides a graphical interf
 2. Install **CMake 3.16+**.
 <!-- 3. Install a C++ compiler (**MinGW-w64**). -->
 
-#### Example of how to build with CMake 4.3.1, Qt 6.11.0, and MinGW located in [build_scripts\build_debug_qtenv.bat](/build_scripts/build_debug_qtenv.bat)
+#### Example of how to build with CMake 4.3.1, Qt 6.11.0, and MinGW located in [build_scripts/build_debug_qtenv.bat](./build_scripts/build_debug_qtenv.bat)
 
 <!-- ```bash
 

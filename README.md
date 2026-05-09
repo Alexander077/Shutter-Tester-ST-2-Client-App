@@ -1,6 +1,6 @@
 # Shutter Tester ST-2 — Desktop Client & Serial API
 
-This repository contains **Windows desktop client** application and the **Serial API documentation & tests** for the **Shutter Tester ST-2** — a hardware device designed for testing and calibrating film camera shutters.
+This repository contains **Windows desktop client** application and the **Serial API documentation & tests** for the **Shutter Tester ST-2** — a hardware device designed for testing and calibrating film camera shutters. The desktop application is currently in alpha state (under development).
 
 ---
 
