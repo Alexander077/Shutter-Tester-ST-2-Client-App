@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Shutter Tester ST-2</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/camera_icon_64x64.png</normaloff>assets/camera_icon_64x64.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="leftWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayoutLeft">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QGroupBox" name="groupBoxReport">
+          <property name="title">
+           <string>Report Data</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayoutReport">
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelCameraModel">
+             <property name="text">
+              <string>Camera Model:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="cameraModelField">
+             <property name="placeholderText">
+              <string>Enter model</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="labelSerialNumber">
+             <property name="text">
+              <string>Serial Number:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="serialNumberField">
+             <property name="placeholderText">
+              <string>Enter serial</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="labelFrameSize">
+             <property name="text">
+              <string>Frame Size:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="frameSizeComboBox"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="labelShutterType">
+             <property name="text">
+              <string>Shutter Type:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="shutterTypeComboBox"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="labelSpeedSeries">
+             <property name="text">
+              <string>Speed Series:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayoutSpeed">
+             <item>
+              <widget class="QComboBox" name="speedSeriesComboBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="deleteSeriesButton">
+               <property name="toolTip">
+                <string>Delete custom series</string>
+               </property>
+               <property name="text">
+                <string>...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="labelRunsPerSpeed">
+             <property name="text">
+              <string>Runs Per Speed:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QComboBox" name="runsPerSpeedComboBox"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelAcceptance">
+          <property name="text">
+           <string>Acceptance Threshold:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="acceptanceSlider">
+          <property name="maximum">
+           <number>3</number>
+          </property>
+          <property name="pageStep">
+           <number>1</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TickPosition::TicksBelow</enum>
+          </property>
+          <property name="tickInterval">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutSliderLabels">
+          <item>
+           <widget class="QLabel" name="labelEV0">
+            <property name="text">
+             <string>0.05 EV</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelEV1">
+            <property name="text">
+             <string>0.1 EV</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelEV2">
+            <property name="text">
+             <string>0.2 EV</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelEV3">
+            <property name="text">
+             <string>0.5 EV</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelNotes">
+          <property name="text">
+           <string>Notes:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="notesTextEdit"/>
+        </item>
+        <item>
+         <spacer name="verticalSpacerLeft">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="centerWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayoutCenter">
+        <item>
+         <widget class="QTableWidget" name="speedsTableWidget">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="rightWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayoutRight">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="errorText">
+          <property name="styleSheet">
+           <string>color: red;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacerRight">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>847</width>
+     <height>22</height>
+    </rect>
+   </property>
+    <widget class="QMenu" name="menuFile">
+     <property name="title">
+      <string>File</string>
+     </property>
+     <addaction name="actionSave_Current_Session"/>
+     <addaction name="actionRestore_Session"/>
+      <addaction name="separator"/>
+      <addaction name="actionGenerate_Report"/>
+      <addaction name="separator_2"/>
+      <addaction name="actionExit"/>
+    </widget>
+   <widget class="QMenu" name="menuDevice">
+    <property name="title">
+     <string>Device</string>
+    </property>
+    <addaction name="actionConnect_To_Device"/>
+    <addaction name="separator"/>
+    <addaction name="actionLight_Setup"/>
+    <addaction name="actionFirmware_Update"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDevice"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionGenerate_Report">
+   <property name="text">
+    <string>Generate Report</string>
+   </property>
+  </action>
+  <action name="actionFirmware_Update">
+   <property name="text">
+    <string>Firmware Update</string>
+   </property>
+  </action>
+  <action name="actionLight_Setup">
+   <property name="text">
+    <string>Light Setup</string>
+   </property>
+  </action>
+  <action name="actionConnect_To_Device">
+   <property name="text">
+    <string>Connect To Device</string>
+   </property>
+  </action>
+  <action name="actionSave_Current_Session">
+   <property name="text">
+    <string>Save Current Session</string>
+   </property>
+  </action>
+  <action name="actionRestore_Session">
+   <property name="text">
+    <string>Restore Session</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

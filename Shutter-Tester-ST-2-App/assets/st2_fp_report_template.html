@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ST-2 Shutter Speed Test Report</title>
+<style>
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #1a1a1e;
+}
+
+/* HEADER */
+.header-td {
+    background-color: #1c1c2e;
+    color: #f0ead8;
+    padding: 10px 15px;
+}
+.header-img {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+}
+.header-title {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.header-sub {
+    font-size: 8pt;
+    color: #c8a96e;
+}
+.header-meta {
+    font-size: 7pt;
+    line-height: 1.5;
+}
+.accent-border {
+    border-bottom: 3px solid #c8a96e;
+    font-size: 0;
+    line-height: 0;
+}
+
+/* SECTIONS */
+.section-panel {
+    border: 1px solid #c8c0b0;
+    background-color: #faf8f4;
+    padding: 10px;
+}
+.curtains-section-panel {
+    border: 1px solid #90a4ae;
+    background-color: #f0f4f8;
+    padding: 10px;
+}
+.section-label {
+    background-color: #2d2d44;
+    color: #c8a96e;
+    font-size: 7pt;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+.section-label-fp {
+    background-color: #263238;
+    color: #c8a96e;
+    font-size: 7pt;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+
+/* INFO GRID */
+.info-grid td {
+    padding-bottom: 4px;
+    font-size: 8.5pt;
+}
+.info-grid tr:last-child .field-value {
+    border-bottom: none;
+}
+.field-label {
+    font-size: 6.2pt;
+    color: #777770;
+    text-transform: uppercase;
+}
+.field-value {
+    font-weight: bold;
+    color: #1a1a1e;
+    display: inline-block;
+    width: 100%;
+}
+
+.field-value-underline {
+    background-color:  #2c2518;
+    padding-bottom: 0;
+    margin: 0;
+    display: block;
+    position: relative;
+    top: -2px;
+}
+
+/* TABLES */
+.main-table {
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 8pt;
+    text-align: center;
+}
+.main-table th {
+    background-color: #2d2d44;
+    color: #f0ead8;
+    font-size: 6.8pt;
+    font-weight: bold;
+    border: 1px solid #c8c0b0;
+    border-bottom: 2px solid #c8a96e;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.main-table td {
+    border: 1px solid #c8c0b0;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ct-table {
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 7pt;
+    text-align: center;
+    border: 1px solid #b0bec5;
+}
+.ct-table th {
+    background-color: #263238;
+    color: #f0ead8;
+    font-size: 6.8pt;
+    font-weight: bold;
+    border: 1px solid #b0bec5;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.ct-table td {
+    border: 1px solid #b0bec5;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ct-unit {
+    color: #c8a96e;
+    font-size: 5.5pt;
+    font-weight: normal;
+}
+
+/* TEXT UTILITIES */
+.fw-bold {
+    font-weight: bold;
+}
+.fs-85 {
+    font-size: 8.5pt;
+}
+.text-sub {
+    color: #777770;
+    font-size: 7pt;
+}
+.c-pass {
+    color: #2e7d32;
+}
+.c-fail {
+    color: #c62828;
+}
+.c-warn {
+    color: #e65100;
+}
+
+/* BADGES & PILLS */
+.badge-uni {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-size: 6.8pt;
+    font-weight: bold;
+    padding: 2px 4px;
+}
+.pill {
+    display: inline-block;
+    font-size: 7pt;
+    font-weight: bold;
+    padding: 2px 6px;
+    text-align: center;
+    width: 45px;
+}
+
+/* VERDICT */
+.verdict-box {
+    padding: 8px 15px;
+}
+.verdict-title {
+    font-size: 10pt;
+    font-weight: bold;
+}
+.verdict-stats {
+    font-size: 7.5pt;
+    color: #1a1a1e;
+}
+
+/* REMARKS */
+.remarks-text {
+    font-size: 7.5pt;
+    color: #1a1a1e;
+    margin-top: 5px;
+}
+
+/* SIGNATURES */
+.sig-block {
+    border-top: 0.5px solid #c8c0b0;
+    padding-top: 3px;
+    font-size: 6pt;
+    color: #777770;
+    text-align: center;
+}
+
+/* FOOTER */
+.footer-td-left {
+    background-color: #1c1c2e;
+    padding: 8px 15px;
+    font-size: 5.8pt;
+    color: #666680;
+}
+.footer-td-right {
+    background-color: #1c1c2e;
+    padding: 8px 15px;
+    font-size: 5.8pt;
+    color: #c8a96e;
+    text-align: right;
+}
+
+/* FP NOTE */
+.fp-note {
+    font-size: 5.8pt;
+    color: #777770;
+    margin-top: 4px;
+}
+</style>
+</head>
+<body>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td class="header-td">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="75" valign="middle">
+            <img class="header-img" alt="" src="data:image/png;base64,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">
+          </td>
+          <td valign="middle">
+            <div class="header-title">SHUTTER SPEED TEST REPORT</div>
+            <div class="header-sub">ST-2 Tester &nbsp;&middot;&nbsp; Focal Plane Analysis &nbsp;&middot;&nbsp; Horizontal Travel</div>
+          </td>
+          <td align="right" valign="middle" class="header-meta">
+            {{DATE}}<br>
+            Firmware: {{FIRMWARE}}<br>
+            App: ST-2 App {{APP_VERSION}}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr><td class="accent-border">&nbsp;</td></tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+  <tr>
+    <td class="section-panel">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td class="section-label">&#9632; INSTRUMENT IDENTIFICATION</td></tr>
+      </table>
+      <table width="100%" cellpadding="5" cellspacing="0" border="0" class="info-grid" style="margin-top:5px;">
+        <tr>
+          <td style="width:50%;">
+            <div class="field-label">Camera Model</div>
+            <div class="field-value">{{CAMERA_MODEL}}</div>
+            <hr class="field-value-underline">
+          </td>
+          <td style="width:50%;">
+            <div class="field-label">Serial Number</div>
+            <div class="field-value">{{SERIAL_NUMBER}}</div>
+            <hr class="field-value-underline">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="field-label">Shutter Name</div>
+            <div class="field-value">{{SHUTTER_NAME}}</div>
+            <hr class="field-value-underline">
+          </td>
+          <td>
+            <div class="field-label">Shutter Type</div>
+            <div class="field-value">{{SHUTTER_TYPE}}</div>
+            <hr class="field-value-underline">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="field-label">Frame Format</div>
+            <div class="field-value">{{FRAME_FORMAT}}</div>
+            <hr class="field-value-underline">
+          </td>
+          <td>
+            <div class="field-label">Speed Series</div>
+            <div class="field-value">{{SPEED_SERIES}}</div>
+            <hr class="field-value-underline">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="field-label">Technician</div>
+            <div class="field-value">{{TECHNICIAN}}</div>
+            <hr class="field-value-underline">
+          </td>
+          <td>
+            <div class="field-label">Measurement Runs</div>
+            <div class="field-value">{{MEASUREMENT_RUNS}}</div>
+            <hr class="field-value-underline">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+  <tr>
+    <td class="section-panel">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="section-label">&#9632; SHUTTER SPEED MEASUREMENTS</td>
+          <td align="right" class="section-label">Acceptance Tolerance: {{TOLERANCE}}</td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" class="main-table">
+        <thead>
+          <tr>
+            <th style="width:12%;">Nominal</th>
+            <th style="width:13%;">Meas. S1</th>
+            <th style="width:13%;">Meas. S2</th>
+            <th style="width:13%;">Avg (s)</th>
+            <th style="width:12%;">Dev (EV)</th>
+            <th style="width:11%;">Dev (%)</th>
+            <th style="width:12%;">Uniformity</th>
+            <th style="width:14%;">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--FOCAL_PLANE_SPEED_ROW_TEMPLATE_START
+          <tr>
+            <td class="fw-bold fs-85">{{SPEED}}</td>
+            <td>{{MEASURED_SPEED_S1}}</td>
+            <td>{{MEASURED_SPEED_S2}}</td>
+            <td class="text-sub">{{AVERAGE_SPEED}}</td>
+            <td class="c-pass">{{DEVIATION_EV}}</td>
+            <td class="c-pass">{{DEVIATION_PERCENT}}</td>
+            <td><span class="badge-uni">{{UNIFORMITY}}</span></td>
+            <td><span class="pill" style="background-color:{{PILL_BG}}; color:{{PILL_COLOR}}; border:0.7px solid {{PILL_BORDER}};">{{SPEED_STATUS_VALUE}}</span></td>
+          </tr>
+          FOCAL_PLANE_SPEED_ROW_TEMPLATE_END-->
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+  <tr>
+    <td class="curtains-section-panel">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td class="section-label-fp">&#9632; FOCAL PLANE CURTAIN MEASUREMENTS</td></tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" class="ct-table">
+        <thead>
+          <tr>
+            <th style="width:10%;">Speed</th>
+            <th style="width:15%;">FC Speed<br><span class="ct-unit">mm/ms</span></th>
+            <th style="width:15%;">SC Speed<br><span class="ct-unit">mm/ms</span></th>
+            <th style="width:15%;">FC Time<br><span class="ct-unit">ms</span></th>
+            <th style="width:15%;">SC Time<br><span class="ct-unit">ms</span></th>
+            <th style="width:15%;">Slit @ S1<br><span class="ct-unit">mm</span></th>
+            <th style="width:15%;">Slit @ S2<br><span class="ct-unit">mm</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--FOCAL_PLANE_CURTAIN_ROW_TEMPLATE_START 
+          <tr>
+            <td class="fw-bold">{{SPEED}}</td>
+            <td class="c-pass">{{FC_SPEED}}</td>
+            <td class="c-pass">{{SC_SPEED}}</td>
+            <td>{{FC_TIME}}</td>
+            <td>{{SC_TIME}}</td>
+            <td class="text-sub">{{SLIT_WIDTH_AT_S1}}</td>
+            <td class="text-sub">{{SLIT_WIDTH_AT_S2}}</td>
+          </tr> 
+          FOCAL_PLANE_CURTAIN_ROW_TEMPLATE_END-->
+        </tbody>
+      </table>
+      <div class="fp-note">FC = First Curtain &nbsp;&nbsp; SC = Second Curtain &nbsp;&nbsp; Slit = estimated slit width at sensor position &nbsp;&nbsp; Speed colour: green <5% balance / orange <10% / red >10%</div>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+  <tr>
+    <td class="verdict-box" style="border:1.2px solid {{STATUS_BORDER_COLOR}}; background-color:{{STATUS_BG_COLOR}};">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="verdict-title" style="color:{{STATUS_COLOR}};">OVERALL {{STATUS}}</td>
+          <td align="right" class="verdict-stats">Speeds tested: {{SPEEDS_TESTED}} &nbsp;&nbsp;&nbsp; Passed: {{PASSED_COUNT}} &nbsp;&nbsp;&nbsp; Failed: {{FAILED_COUNT}}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+  <tr>
+    <td class="section-panel">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td class="section-label">&#9632; REMARKS</td></tr>
+      </table>
+      <div class="remarks-text">{{NOTES}}</div>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+  <tr>
+    <td width="33%" class="sig-block">Technician Signature</td>
+    <td width="33%" class="sig-block">QC Approval</td>
+    <td width="33%" class="sig-block">Date</td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+  <tr>
+    <td class="footer-td-left">Generated by ST-2 App {{APP_VERSION}} &nbsp;&middot;&nbsp; {{FIRMWARE}} &nbsp;&middot;&nbsp; {{DATE}}</td>
+    <td class="footer-td-right">Template: Club Daguerre e.V. &nbsp;&middot;&nbsp; www.club-daguerre.de</td>
+  </tr>
+</table>
+
+</body>
+</html>
