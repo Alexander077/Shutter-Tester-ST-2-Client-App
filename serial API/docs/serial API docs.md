@@ -53,6 +53,20 @@ This API is used to verify that the device is connected, responsive, and ready t
 
 ---
 
+## Abort Operation API
+
+This API is used to abort any currently running continuous operation (e.g., Light Setup or waiting for a Measurement). It instructs the device to stop the current action and return to an idle state.
+
+**Command:**
+```json
+{ "cmd": "API_REQUEST_ABORT_OPERATION" }
+```
+
+**Action:**
+Sending this command resets the device's internal state, terminating ongoing tasks. There is no explicit JSON response to this specific command; it simply unblocks the device so it can immediately process the next instruction.
+
+---
+
 ## Light Setup API
 
 This API is used to put the device into "Light Setup" mode, where it continuously reports the real-time status and quality of the light hitting the sensors.
